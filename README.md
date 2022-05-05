@@ -1,7 +1,7 @@
 # Virtual Apache ZooKeeper cluster
 
 This script creates a virtual 3-node [Apache ZooKeeper](http://zookeeper.apache.org/)
-cluster on your local machine using [Vagrant](https://www.vagrantup.com/), [VirtualBox](https://www.virtualbox.org/) and [Ansible](http://www.ansible.com/home).
+cluster on your local machine using [Vagrant](https://www.vagrantup.com/), [VirtualBox](https://www.virtualbox.org/) and Shell.
 
 The Zookeeper service will run in a truly replicated mode over several machines, so you can experiment with host failures, client connections, misc cluster configurations, etc.
 
@@ -18,7 +18,7 @@ Also, if you want to create a virtual cluster for other services built on top of
 
 You can easily customize the cluster parameters in the following files:
 - `Vagrantfile` contains parameters for the system, memory, IP addresses and hostnames
-- `provision.yml` contains parameters for Zookeeper version, installation directory, mirror and the JVM version.
+- `install.sh` contains parameters for Zookeeper version, installation directory, mirror and the JVM version.
 
 *Note regarding the cluster size*: It is recommended to run the cluster on an odd number of hosts (3, 5, etc). Zookeeper is designed to survive failure of minority of hosts. Zookeeper running on 3 or 4 hosts can survive failure of 1 host while Zookeper running on 5 hosts can survive failure of 2 hosts.
 
@@ -33,17 +33,14 @@ For Mac, this can be done with Homebrew:
 brew install caskroom/cask/brew-cask
 brew cask install virtualbox
 brew cask install vagrant
-brew install ansible
 ```
 
-Make sure you are running Ansible v1.7.2 or higher with `ansible --version`.
-
-For other systems, checkout the installation pages of [Vagrant](https://docs.vagrantup.com/v2/installation/), [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Ansible](http://docs.ansible.com/intro_installation.html).
+For other systems, checkout the installation pages of [Vagrant](https://docs.vagrantup.com/v2/installation/), [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
 ### 2. Clone this repo
 
 ```
-git clone https://github.com/mkrcah/virtual-zookeeper-cluster.git
+git clone https://github.com/teamlet/virtual-zookeeper-cluster.git
 cd virtual-zookeeper-cluster
 ```
 
